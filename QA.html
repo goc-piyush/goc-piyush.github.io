@@ -308,6 +308,15 @@
             var initESW = function (gslbBaseURL) {
                 embedded_svc.settings.displayHelpButton = true; //Or false
                 embedded_svc.settings.language = "";
+				embedded_svc.addEventHandler("onInviteAccepted", function() {
+					console.log("onInviteAccepted event was fired.");
+				});
+				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+					console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
+				});
+				embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
+					console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
+				});
                 embedded_svc.settings.waitingStateBackgroundImgURL = "https://qa-lixilamerica.cs36.force.com/LWTACustomerService/resource/1625054452000/welcomenotes";
                 //embedded_svc.settings.loadingText = "Welcome to Grohe. we are now connecting you with our help center";
                 //For example, enter 'en' or 'en-US'
@@ -323,12 +332,7 @@
                 //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
                 //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
                 //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-		embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
-    console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
-});
-embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
-    console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
-});
+		
 
 
                 embedded_svc.settings.enabledFeatures = ["LiveAgent"];
