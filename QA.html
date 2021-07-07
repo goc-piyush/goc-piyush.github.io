@@ -358,6 +358,16 @@
                     }
                 );
             };
+			embedded_svc.addEventHandler("onInviteAccepted", function() {
+				console.log("onInviteAccepted event was fired.");
+			});
+			embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+				console.log('------------agent join conference-------');
+				console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
+			});
+			embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
+				console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
+			});
             if (!window.embedded_svc) {
                 var s = document.createElement("script");
                 s.setAttribute(
