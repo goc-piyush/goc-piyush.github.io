@@ -385,7 +385,11 @@
 			
         </script>
 		
-	
+		<script>
+			document.addEventListener('onInviteAccepted', function(event) {
+				console.log('event recieved form component', event);
+			})
+		</script>
     
   </body>
 </html>
