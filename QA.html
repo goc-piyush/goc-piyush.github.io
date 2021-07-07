@@ -323,6 +323,9 @@
                 //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
                 //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
                 //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+		embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+    console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
+});
                 embedded_svc.settings.enabledFeatures = ["LiveAgent"];
                 embedded_svc.settings.entryFeature = "LiveAgent";
                 embedded_svc.init(
@@ -357,11 +360,11 @@
                 initESW("https://service.force.com");
             }
         </script>
-	<script type='text/javascript'>
+<!-- 	<script type='text/javascript'>
             document.addEventListener("redirectFromLWC", function (event) {
                 console.log('vf event data window listener => ', event);
                 // embedded_svc.bootstrapEmbeddedService();
             });
-        </script>
+        </script> -->
   </body>
 </html>
