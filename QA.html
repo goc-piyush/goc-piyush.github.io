@@ -369,11 +369,23 @@
                 initESW("https://service.force.com");
             }
         </script>
-<!-- 	<script type='text/javascript'>
+	<script type='text/javascript'>
             document.addEventListener("redirectFromLWC", function (event) {
                 console.log('vf event data window listener => ', event);
                 // embedded_svc.bootstrapEmbeddedService();
             });
-        </script> -->
+			document.addEventListener("onInviteAccepted", function (event) {
+                console.log('vf event data window listener onInviteAccepted => ', event);
+                // embedded_svc.bootstrapEmbeddedService();
+            });
+			document.addEventListener("onAgentJoinedConference", function (event) {
+                console.log('vf event data window listener onAgentJoinedConference => ', event);
+                // embedded_svc.bootstrapEmbeddedService();
+            });
+			document.addEventListener("onChatConferenceInitiated", function (event) {
+                console.log('vf event data window listener onChatConferenceInitiated => ', event);
+                // embedded_svc.bootstrapEmbeddedService();
+            });
+        </script>
   </body>
 </html>
