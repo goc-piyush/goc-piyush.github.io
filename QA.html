@@ -358,9 +358,10 @@
                     }
                 );
             };
-			embedded_svc.addEventHandler("onInviteAccepted", function() {
+			let onInvite = embedded_svc.addEventHandler("onInviteAccepted", function() {
 				console.log("onInviteAccepted event was fired.");
 			});
+			console.log('invites', onInvite);
 			embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
 				console.log('------------agent join conference-------');
 				console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
@@ -381,7 +382,7 @@
             } else {
                 initESW("https://service.force.com");
             }
-			console.log('embedded_svc', embedded_svc.addEventHandler(onInviteAccepted));
+			
         </script>
 		
 	
