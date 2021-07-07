@@ -315,7 +315,7 @@
                 //For example, enter 'en' or 'en-US'
                 //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
                 //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-                embedded_svc.settings.loadingText = 'Welcome to Grohe'; //(Defaults to Loading)
+                embedded_svc.settings.loadingText = 'Loading...'; //(Defaults to Loading)
                 //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
                 // Settings for Chat
                 //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
@@ -330,16 +330,7 @@
 
                 embedded_svc.settings.enabledFeatures = ["LiveAgent"];
                 embedded_svc.settings.entryFeature = "LiveAgent";
-				embedded_svc.addEventHandler("onInviteAccepted", function() {
-					console.log("onInviteAccepted event was fired.");
-				});
-				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
-					console.log('------------agent join conference-------');
-					console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
-				});
-				embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
-					console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
-				});
+				
                 embedded_svc.init(
                     "https://lwta--QA.my.salesforce.com",
                     "https://qa-lixilamerica.cs36.force.com/LWTACustomerService",
@@ -358,17 +349,8 @@
                     }
                 );
             };
-			let onInvite = embedded_svc.addEventHandler("onInviteAccepted", function() {
-				console.log("onInviteAccepted event was fired.");
-			});
-			console.log('invites', onInvite);
-			embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
-				console.log('------------agent join conference-------');
-				console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
-			});
-			embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
-				console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
-			});
+			
+			
             if (!window.embedded_svc) {
                 var s = document.createElement("script");
                 s.setAttribute(
