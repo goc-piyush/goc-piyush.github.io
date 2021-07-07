@@ -309,16 +309,7 @@
                 embedded_svc.settings.displayHelpButton = true; //Or false
                 embedded_svc.settings.language = "";
 				console.log('testing');
-				embedded_svc.addEventHandler("onInviteAccepted", function() {
-					console.log("onInviteAccepted event was fired.");
-				});
-				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
-					console.log('------------agent join conference-------');
-					console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
-				});
-				embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
-					console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
-				});
+				
                 embedded_svc.settings.waitingStateBackgroundImgURL = "https://qa-lixilamerica.cs36.force.com/LWTACustomerService/resource/1625054452000/welcomenotes";
                 //embedded_svc.settings.loadingText = "Welcome to Grohe. we are now connecting you with our help center";
                 //For example, enter 'en' or 'en-US'
@@ -339,6 +330,16 @@
 
                 embedded_svc.settings.enabledFeatures = ["LiveAgent"];
                 embedded_svc.settings.entryFeature = "LiveAgent";
+				embedded_svc.addEventHandler("onInviteAccepted", function() {
+					console.log("onInviteAccepted event was fired.");
+				});
+				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+					console.log('------------agent join conference-------');
+					console.log("onAgentJoinedConference event was fired.  liveAgentSessionKey was " + data);
+				});
+				embedded_svc.addEventHandler("onChatConferenceInitiated", function(data) {
+					console.log("onChatConferenceInitiated event was fired.  liveAgentSessionKey was " + data);
+				});
                 embedded_svc.init(
                     "https://lwta--QA.my.salesforce.com",
                     "https://qa-lixilamerica.cs36.force.com/LWTACustomerService",
