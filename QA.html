@@ -98,7 +98,9 @@
 			let fname = agentName.split(' ')[0];
 			let content = `Chat started with ${fname}`;
 			console.log('contecnt', content);
-			let name = document.getElementsByClassName('uiOutputRichText').innerHTML = content;
+			document.getElementsByClassName('uiOutputRichText').update(content);
+			let name = document.getElementsByClassName('uiOutputRichText');
+			console.log('name:- --', name);
   			console.log('event data', event.detail.data.data.agentName);
 		});
 	  </script>
