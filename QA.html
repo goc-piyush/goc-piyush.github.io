@@ -44,8 +44,7 @@
 // 					console.log("onInviteAccepted event was fired.");
 // 				});
 // 				embedded_svc.addEventHandler("onQueueUpdate", function() {
-// 					let name = document.getElementsByClassName('eventMessage');
-// 					console.log("name:- ", name);
+// 					
 // 					console.log("onQueueUpdate event was fired.");
 // 				});
 				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
@@ -95,7 +94,12 @@
         </script>
 	<script>
 		document.addEventListener("redirectFromLWC", function(event){
-  			console.log('event data', event);
+			let agentName = event.detail.data.data.agentName;
+			let fname = agentName.split(' ')[0];
+			let content = `Chat started with ${fname}`;
+			console.log('contecnt', content);
+			let name = document.getElementsByClassName('uiOutputRichText').innerHTML = content;
+  			console.log('event data', event.detail.data.data.agentName);
 		});
 	  </script>
 	
