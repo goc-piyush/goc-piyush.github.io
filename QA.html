@@ -325,8 +325,11 @@
                 //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
                 //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
                 //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-		
-
+				
+				embedded_svc.addEventHandler("onAgentMessage", function(data) {
+					console.log('on agent send message');
+					console.log("onAgentMessage event was fired.  data was " + JSON.stringify(data));
+				});
 				embedded_svc.addEventHandler("onChatRequestSuccess", function(data) {
 					console.log("onChatRequestSuccess event was fired.  data was " + JSON.stringify(data));
 				});
