@@ -386,7 +386,11 @@
             }
 			
         </script>
-		
+	<script>
+		document.addEventListener("redirectFromLWC", function(event){
+  			console.log('event data', event);
+		});
+	  </script>
 	
     
   </body>
