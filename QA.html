@@ -337,6 +337,8 @@
 					console.log("onInviteAccepted event was fired.");
 				});
 				embedded_svc.addEventHandler("onQueueUpdate", function() {
+					let name = document.getElementByClass('eventMessage');
+					console.log("name:- ", name);
 					console.log("onQueueUpdate event was fired.");
 				});
 				embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
