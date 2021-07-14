@@ -103,8 +103,14 @@
 			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
 			element.textContent = content;
-			let lastmsg = msgNames[msgNames.length - 1];
-			lastmsg.textContent = fname;
+// 			let lastmsg = msgNames[msgNames.length - 1];
+// 			lastmsg.textContent = fname;
+			msgNames.forEach(ele => {
+				if(ele.innerText == agentName){
+			    		ele.textContent = fname;
+			    		console.log(ele.innerText);    
+				}
+			});
   			console.log('event data', event.detail.data.data.agentName);
 		});
 	  </script>
