@@ -100,10 +100,11 @@
 			let fname = agentName.split('_')[0];
 			let content = `Chat started with ${fname}`;
 			console.log('contecnt', content);
-			let msgName = document.querySelector('.nameAndTimeContent > .agentName');
+			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
 			element.textContent = content;
-			msgName.textContent = content;
+			let lastmsg = msgNames[msgNames.length - 1];
+			lastmsg.textContent = fname;
 			console.log('element:- --', element);
   			console.log('event data', event.detail.data.data.agentName);
 		});
