@@ -27,7 +27,9 @@
 			embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
 			embedded_svc.settings.widgetWidth = "320px";
 			embedded_svc.settings.defaultMinimizedText = 'CHAT & CO-BROWSE WITH AN AGENT';
-	
+			embedded_svc.addEventHandler("onAgentJoinedConference", function(data) {
+			    console.log("onAgentJoinedConference event was fired.");
+			});
 			//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 			//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
 	
