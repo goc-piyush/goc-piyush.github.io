@@ -115,8 +115,8 @@
 		});
 		 (function(){
 			setTimeout(function(){
-			    document.cookie = "cookieTestNew=x;SameSite=Lax;";
-			    var cookieEnabled = document.cookie.indexOf("cookieTestNew=") != -1;
+			    document.cookie = "cookieSettingVerified=true";
+			    var cookieEnabled = document.cookie.indexOf("cookieSettingVerified=") != -1;
 			    if(cookieEnabled){
 				//Remove Popup
 				if(document.getElementsByTagName("section").length > 0){
