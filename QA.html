@@ -11,22 +11,20 @@
 		    max-height: 10.5 rem  !important;
 		    border-radius: 8px 8px 0 0;
 		}
-		 .embeddedServiceLiveAgentStateChat .messageArea{
-			overflow-y: auto !important;
-		}
-		.embeddedServiceLiveAgentStateChat .messageArea:hover{
-			overflow-y: auto !important;
-		}
+		 
+	}
+	    @media only screen and (min-width: 600px) {
+		  .embeddedServiceLiveAgentStateChat .messageArea{
+			overflow-y: hidden !important;
+			-webkit-overflow-scrolling: touch;
+		}  
 	}
 	.embeddedServiceSidebar.layout-docked .dockableContainer {
 	    width: 20 rem  !important;
 	    max-height: 37.5 rem  !important;
 	    border-radius: 8px 8px 0 0;
 	}
-	.embeddedServiceLiveAgentStateChat .messageArea{
-		overflow-y: hidden !important;
-		-webkit-overflow-scrolling: touch;
-	}
+	
 	    .embeddedServiceLiveAgentStateChat .messageArea:hover{
 		overflow-y: auto !important;
 	}
