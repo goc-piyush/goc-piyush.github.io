@@ -1,4 +1,4 @@
-const el = document.querySelector(".");
+const el = document.querySelector(".dockableContainer");
 
 el.addEventListener('mousedown', mousedown);
 
