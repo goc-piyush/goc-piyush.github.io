@@ -486,47 +486,7 @@
 
       </script>
 
-      <script>
-
-        document.addEventListener(""redirectFromLWC"", function(event){
-
-          let agentName = event.detail.data.data.agentName;
-
-          let fname = agentName.split("_")[0];
-
-          let content = `Chat started with ${fname}
-
-`;
-
-          console.log("contecnt", content);
-
-          let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-
-          let element = document.querySelector(".eventMessage > .uiOutputRichText");
-
-          element.textContent = content;
-
-          msgNames.forEach(ele => {
-
-            if(ele.innerText == agentName){
-
-              ele.textContent = fname;
-
-              console.log(ele.innerText);
-
-            }
-
-          }
-
-                          );
-
-          console.log("event data", event.detail.data.data.agentName);
-
-        }
-
-        );
-
-      </script>
+     
 
       <script type="text/javascript">
 
@@ -745,6 +705,47 @@
           initESW("https://service.force.com");
 
         }
+
+      </script>
+       <script>
+
+        document.addEventListener(""redirectFromLWC"", function(event){
+
+          let agentName = event.detail.data.data.agentName;
+
+          let fname = agentName.split("_")[0];
+
+          let content = `Chat started with ${fname}
+
+`;
+
+          console.log("contecnt", content);
+
+          let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
+
+          let element = document.querySelector(".eventMessage > .uiOutputRichText");
+
+          element.textContent = content;
+
+          msgNames.forEach(ele => {
+
+            if(ele.innerText == agentName){
+
+              ele.textContent = fname;
+
+              console.log(ele.innerText);
+
+            }
+
+          }
+
+                          );
+
+          console.log("event data", event.detail.data.data.agentName);
+
+        }
+
+        );
 
       </script>
 
