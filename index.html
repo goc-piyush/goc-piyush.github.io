@@ -267,13 +267,10 @@
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
 		embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-
 		//embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
 		//embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
-
 		//embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
 		//embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
-
 		// Settings for Chat
 		//embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
 			// Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
@@ -282,27 +279,24 @@
 		//embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
 		//embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
 		//embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
-
 		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
 		embedded_svc.settings.entryFeature = 'LiveAgent';
-
 		embedded_svc.init(
 			'https://lwta--full.my.salesforce.com',
 			'https://full-lixilamerica.cs29.force.com/LWTACustomerService',
 			gslbBaseURL,
 			'00D0r0000000hH2',
-			'GROHE_Chatbots_Team',
+			'Bot_Chatbots_Group',
 			{
 				baseLiveAgentContentURL: 'https://c.la3-c1cs-ia2.salesforceliveagent.com/content',
 				deploymentId: '5720r0000008ONP',
-				buttonId: '5730r0000008p4E',
+				buttonId: '5730r0000009G4r',
 				baseLiveAgentURL: 'https://d.la3-c1cs-ia2.salesforceliveagent.com/chat',
-				eswLiveAgentDevName: 'GROHE_Chatbots_Team',
+				eswLiveAgentDevName: 'Bot_Chatbots_Group',
 				isOfflineSupportEnabled: false
 			}
 		);
 	};
-
 	if (!window.embedded_svc) {
 		var s = document.createElement('script');
 		s.setAttribute('src', 'https://lwta--full.my.salesforce.com/embeddedservice/5.0/esw.min.js');
@@ -313,6 +307,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
+
 	document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
 			let fname = agentName.split('_')[0];
