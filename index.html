@@ -313,9 +313,7 @@
 	} else {
 		initESW('https://service.force.com');
 	}
-</script>
-	<script>
-		document.addEventListener("redirectFromLWC", function(event){
+	document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
 			let fname = agentName.split('_')[0];
 			let content = `Chat started with ${fname}`;
@@ -333,7 +331,8 @@
 			});
   			console.log('event data', event.detail.data.data.agentName);
 		});
-	  </script>
+</script>
+	
  
   </body>
 </html>
