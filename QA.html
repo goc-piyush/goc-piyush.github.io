@@ -365,25 +365,17 @@
 			});
   			console.log('event data', event.detail.data.data.agentName);
 		});
-		 (function(){
-			setTimeout(function(){
-			    document.cookie = "cookieSettingVerified=true";
-			    var cookieEnabled = document.cookie.indexOf("cookieSettingVerified=") != -1;
-			    if(cookieEnabled){
-				//Remove Popup
-				if(document.getElementsByTagName("section").length > 0){
-				 let errorPopupHTML = document.getElementsByTagName("section")[0].innerHTML.toLowerCase();
-				    if(errorPopupHTML.indexOf('prompt-heading-id') > -1){
-					//Error popup has been added to page. Remove it.
-					let parentSection = document.getElementsByTagName("section")[0].parentNode;
-					parentSection.style.display = "none";
-				    }   
-				}
-			    }
-			}, 150);
-		    }());
+		
+window.addEventListener("message", receiveMessage, false);
+function receiveMessage(event) {
+    var payload = event.data;
+
+    if(payload && payload.type === "chasitor.sendMessage") {
+        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+    }
+};
+
 	  </script>
 	
-    <script  src="mian.js" />
   </body>
 </html>
