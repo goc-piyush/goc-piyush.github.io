@@ -373,9 +373,7 @@ function receiveMessage(event) {
     if(payload && payload.type === "chasitor.sendMessage") {
         embedded_svc.postMessage("chasitor.sendMessage", payload.message);
     }
-	if(payload && payload.type === "agent.sendMessage") {
-        embedded_svc.postMessage("agent.sendMessage", payload.message);
-    }
+	
 };
 
 	  </script>
