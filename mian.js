@@ -1,5 +1,5 @@
 console.log('console log from github file');
-this.callLwc();
+
 window.postMessage(
             {
                 message: "submited",
