@@ -5,5 +5,5 @@ window.postMessage(
                 message: "submited",
                 type: "chasitor.sendMessage"
             },
-            window.parent.location.href
+           '*'
     );
