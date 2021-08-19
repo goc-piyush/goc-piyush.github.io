@@ -378,6 +378,11 @@ function receiveMessage(event) {
 	
 };
 
+		window.document.addEventListener('myEvent', handleEvent, false)
+function handleEvent(e) {
+  console.log(e.detail) // outputs: {foo: 'bar'}
+}
+		
 	  </script>
 	
   </body>
