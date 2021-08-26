@@ -262,10 +262,7 @@
     </style>
   </head>
   <body>
-  
-
-
-<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+  <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script type='text/javascript'>
 	var initESW = function(gslbBaseURL) {
 		embedded_svc.settings.displayHelpButton = true; //Or false
@@ -291,7 +288,7 @@
 
 		embedded_svc.init(
 			'https://getoncrm5-dev-ed.my.salesforce.com',
-			'https://harshaddemodomainname-developer-edition.ap24.force.com/Ursa',
+			'https://harshaddemodomainname-developer-edition.ap24.force.com',
 			gslbBaseURL,
 			'00D5g000002ulLg',
 			'Chat_team',
@@ -301,7 +298,7 @@
 				buttonId: '5735g000000srFS',
 				baseLiveAgentURL: 'https://d.la2-c1-ukb.salesforceliveagent.com/chat',
 				eswLiveAgentDevName: 'Chat_team',
-				isOfflineSupportEnabled: false
+				isOfflineSupportEnabled: true
 			}
 		);
 	};
@@ -317,6 +314,9 @@
 		initESW('https://service.force.com');
 	}
 </script>
+
+
+
 	
   </body>
 </html>
