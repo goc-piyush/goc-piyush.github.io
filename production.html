@@ -482,103 +482,10 @@
 
       </style>
 
-      <script type="text/javascript" src="https://service.force.com/embeddedservice/5.0/esw.min.js">
-
-      </script>
+ 
 
      
-
-      <script type="text/javascript">
-
-        (function(w,t,c,p,s,e){
-  p=new Promise(function(r){
-    w[c]={
-      client:function(){
-        if(!s){
-          s=document.createElement(t);
-          s.src="https://js.cobrowse.io/CobrowseIO.js";
-          s.async=1;
-          e=document.getElementsByTagName(t)[0];
-          e.parentNode.insertBefore(s,e);
-          s.onload=function()    {
-            r(w[c]);
-          };
-        }
-        return p;
-      }
-    };
-  });
-})(window,"script","CobrowseIO");
-
-CobrowseIO.license = "XrcXQEUdlTd3Fw";
-CobrowseIO.client().then(function(){
-  var button = document.createElement("div");
-  button.className = "__cbio_ignored";
-  button.textContent = "End cobrowse session";
-  button.style.fontFamily = "sans-serif";
-  button.style.padding = "10px 13px";
-  button.style.fontSize = "13px";
-  button.style.color = "white";
-  button.style.boxShadow = "0px 2px 5px #33333344";
-  button.style.cursor = "pointer";
-  button.style.borderRadius = "30px";
-  button.style.background = "#165788";
-  button.style.position = "fixed";
-  button.style.zIndex = "2147483647";
-  button.style.bottom = "20px";
-  button.style.left = "50%";
-  button.style.transform = "translateX(-50%)";
-  button.addEventListener("click", function() {
-    if (CobrowseIO.currentSession) CobrowseIO.currentSession.end();
-    button.remove();
-  }
-                         );
-  var border = document.createElement("div");
-  border.className = "__cbio_ignored";
-  CobrowseIO.showSessionControls = function() {
-    document.body.appendChild(button).setAttribute("id","custom-close-cobrowse");
-    document.body.appendChild(border).setAttribute("id","custom-border-cobrowse");
-    jQuery(".embeddedServiceHelpButton").addClass("__cbio_ignored");
-    jQuery(".embeddedServiceSidebar").addClass("__cbio_ignored");
-  }
-  CobrowseIO.hideSessionControls = function() {
-    var a = document.getElementById("custom-border-cobrowse");
-    var b = document.getElementById("custom-close-cobrowse");
-    if (a) {
-      a.remove();
-    }
-    if (b) {
-      b.remove();
-    }
-  }
-  CobrowseIO.start();
-  CobrowseIO.createSessionCode().then(function(code) {
-    var AppCode = code;
-    jQuery(document).ready(function(){
-      var count = 0 ;
-      jQuery(document).keypress(function(e){
-        if (e.key === "c") {
-          count+=1;
-          if (count==5) {
-            alert("your cobrowse code is: " + AppCode);
-            count = 0;
-          }
-        }
-        else {
-          count = 0;
-        }
-      }
-                               );
-    }
-                          );
-  }
-                                     );
-}
-                        );
-
-       
-
-      </script>
+   
  
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
