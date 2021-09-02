@@ -542,10 +542,16 @@
 	}
 </script>
        <script>
-		window.document.addEventListener('myEvent', handleEvent, false)
-function handleEvent(e) {
-  console.log(e.detail) // outputs: {foo: 'bar'}
-}
+		var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+		var eventer = window[eventMethod];
+		var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+
+		// Listen to message from child window
+		eventer(messageEvent,function(e) {
+		    var key = e.message ? "message" : "data";
+		    var data = e[key];
+		    //run function//
+		},false);
 
         document.addEventListener("redirectFromLWC", function(event){
 
