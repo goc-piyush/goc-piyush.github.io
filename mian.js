@@ -1,8 +1,7 @@
 console.log('console log from github file');
 var myCustomData = { foo: 'submited' };
 var event = new CustomEvent('myEvent', { detail: myCustomData });
-window.parent.document.dispatchEvent(event);
-
+parent.postMessage("form submitted", "*");
 // window.postMessage(
 //             {
 //                 message: "submited",
