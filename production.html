@@ -542,6 +542,10 @@
 	}
 </script>
        <script>
+		window.document.addEventListener('myEvent', handleEvent, false)
+function handleEvent(e) {
+  console.log(e.detail) // outputs: {foo: 'bar'}
+}
 
         document.addEventListener("redirectFromLWC", function(event){
 
