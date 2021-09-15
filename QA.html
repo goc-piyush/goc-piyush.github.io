@@ -347,11 +347,22 @@ function receiveMessage(event) {
     }
 	
 };
+var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+        var eventer = window[eventMethod];
+        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+        // Listen to message from child window
+        eventer(messageEvent, function (e) {
+        debugger;
+        var key = e.message ? "message" : "data";
+        var data = e[key];
+        console.log({data});
+        if (data == "flow.finished") {
+            console.log('eventer worked', {data});
+        }
+        //run function//
+        }, false);
 
-		window.document.addEventListener('myEvent', handleEvent, false)
-function handleEvent(e) {
-  console.log(e.detail) // outputs: {foo: 'bar'}
-}
+
 		
 	  </script>
 	
