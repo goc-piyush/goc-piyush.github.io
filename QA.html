@@ -352,7 +352,7 @@ var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
         var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
         // Listen to message from child window
         eventer(messageEvent, function (e) {
-        debugger;
+        
         var key = e.message ? "message" : "data";
         var data = e[key];
         console.log({data});
