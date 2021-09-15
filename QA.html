@@ -339,8 +339,6 @@
 window.addEventListener("message", receiveMessage, false);
 function receiveMessage(event) {
     var payload = event.data;
-	console.log('got it');
-
     if(payload && payload.type === "chasitor.sendMessage") {
 	    console.log('inside if');
         embedded_svc.postMessage("chasitor.sendMessage", payload.message);
@@ -355,7 +353,7 @@ var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
         
         var key = e.message ? "message" : "data";
         var data = e[key];
-        console.log({data});
+        console.log(JSON.stringify(data));
         if (data == "flow.finished") {
             console.log('eventer worked', {data});
         }
