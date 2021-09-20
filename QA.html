@@ -339,7 +339,7 @@
 	
 </script>
 	<script>
-		document.addEventListener("redirectFromLWC", function(event){
+/*		document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
 			let fname = agentName.split('_')[0];
 			let content = `Chat started with ${fname}`;
@@ -357,8 +357,11 @@
 			});
   			console.log('event data', event.detail.data.data.agentName);
 		});
+        */
 		
-window.addEventListener("message", receiveMessage, false);
+//window.addEventListener("message", receiveMessage, false);
+/*
+
 function receiveMessage(event) {
     var payload = event.data;
     if(payload && payload.type === "chasitor.sendMessage") {
@@ -381,6 +384,8 @@ var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
         }
         //run function//
         }, false);
+
+*/
 
 
 		
