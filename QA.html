@@ -269,7 +269,12 @@
     fetch('https://qa-lixilamerica.cs63.force.com/LWTACustomerService/services/apexrest/Business/')
     .then(result => {
         console.log({result});
-        loadChatBot();
+        console.log(result.ok);
+        if(result.ok){
+            loadChatBot();
+        }else{
+            console.log('out of business hours..!');
+        }
     })
     .catch(error => {
         console.log({error});
