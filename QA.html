@@ -266,13 +266,17 @@
 
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 <script>
+    let welcomeText;
     fetch('https://qa-lixilamerica.cs63.force.com/LWTACustomerService/services/apexrest/Business/')
     .then(result => {
         console.log({result});
         console.log(result.ok);
         if(result.ok){
+            welcomeText = 'Chat with Expert';
             loadChatBot();
         }else{
+            welcomeText = 'Chat with Bot';
+            loadChatBot();
             console.log('out of business hours..!');
         }
     })
@@ -286,7 +290,7 @@
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
     
-            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
             //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
     
             //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
