@@ -268,7 +268,7 @@
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 
 <script type='text/javascript'>
-    function loadChatBot(){
+    
         var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
@@ -318,7 +318,7 @@
         } else {
             initESW('https://service.force.com');
         }
-    }
+   
 	
 </script>
 	<script>
@@ -373,6 +373,23 @@ var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
 
 		
 	  </script>
+ <div class="container">
+            <div>
+                
+                <div class="slds-hide fixedbuttonagent">     
+                    <div class="slds-align_absolute-center btnAgent " >
+                       <a onclick="showBot()">
+                           CHAT &amp; CO-BROWSE WITH AN  AGENT
+                       </a>
+                    </div>
+                </div>
+                <div class="fixedbutton" onmouseover="showBtn()" onmouseout="hideBtn()" >     
+                    <div class="slds-align_absolute-center btn">
+                        NEED <br> HELP?
+                    </div>
+                </div>
+            </div>
+        </div>
 	
   </body>
 </html>
