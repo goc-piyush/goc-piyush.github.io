@@ -323,22 +323,7 @@
 	.embeddedServiceSidebarButton .label,
 	.embeddedServiceSidebarButton:disabled .label {
 	    color: #0f2b4c !important;
-	}<script>
-    function showBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent');
-        btnagent.classList.remove('slds-hide');
-    }
-    function hideBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent'); 
-        setTimeout(function() {
-            btnagent.classList.add('slds-hide');
-          }, 2000);
-    }
-    function showBot(){
-        console.log({embedded_svc});
-        embedded_svc.bootstrapEmbeddedService();
-    }
-</script>
+	}
 	.embeddedServiceSidebarButton:focus {
 	    box-shadow: none !important;
 	}
@@ -378,27 +363,14 @@
 	  max-width: 23em !important;
 	  width: 23em !important;
 	}
-
+    .helpButtonEnabled{
+        display: none !important;
+    }
     </style>
   </head>
   <body>
   
-<script>
-    function showBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent');
-        btnagent.classList.remove('slds-hide');
-    }
-    function hideBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent'); 
-        setTimeout(function() {
-            btnagent.classList.add('slds-hide');
-          }, 2000);
-    }
-    function showBot(){
-        console.log({embedded_svc});
-        embedded_svc.bootstrapEmbeddedService();
-    }
-</script>
+
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 
 <script type='text/javascript'>
@@ -468,8 +440,10 @@
           }, 2000);
     }
     function showBot(){
-        console.log({embedded_svc});
-        embedded_svc.bootstrapEmbeddedService();
+        //console.log({embedded_svc});
+        //embedded_svc.bootstrapEmbeddedService();
+       let tiggerBot = document.querySelector('.helpButtonEnabled'); 
+       tiggerBot.click();
     }
 
 
