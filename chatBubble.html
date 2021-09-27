@@ -111,13 +111,12 @@
         <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 
     </head>
-        <script>
-            var initESW = function(gslbBaseURL) {
+       <script>
+        var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
-            embedded_svc.settings.communityEndpointURL = 'https://qa-lixilamerica.cs63.force.com/LWTACustomerService';
     
-            //embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
+            embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
             //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
     
             //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
@@ -162,7 +161,8 @@
         } else {
             initESW('https://service.force.com');
         }
-    </script>
+    
+       </script>
 <script>
     function showBtn(){
         let btnagent = document.querySelector('.fixedbuttonagent');
