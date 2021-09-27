@@ -1,9 +1,11 @@
+<!DOCTYPE html>
 <html>
-    <head>
-        <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
-        <title>Chat Bubble</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.16.2/styles/salesforce-lightning-design-system.min.css" integrity="sha512-4zTIO7L0OiCfwrJ0qx1l7FJzVFtJIXCtBjtxzh1cPEaocVlntVXooqrXCf6jk7yENLcymWklHY/tIikmDCF64A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <style>
+  <head>
+	  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
+    <title>Chatbot</title>
+	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.16.2/styles/salesforce-lightning-design-system.min.css" integrity="sha512-4zTIO7L0OiCfwrJ0qx1l7FJzVFtJIXCtBjtxzh1cPEaocVlntVXooqrXCf6jk7yENLcymWklHY/tIikmDCF64A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	  <!-- chat bubble css -->
+	   <style>
             .container{
                 width: 100%;
                 height: auto;
@@ -81,15 +83,8 @@
                 margin-right: -5px;
             }
             
-            .green__icon{
-                --sds-c-icon-color-foreground: #FFFFFF !important;
-                --sds-c-icon-color-background: #3984BE !important;
-                background-color: var(--sds-c-icon-color-background, #3984BE);
-            }
-            .slds-scope .slds-icon-action-close {
-                background-color: #3984be !important;
-                background-color: var(--sds-c-icon-color-background, #3984BE);
-            }
+           
+            
             
             .centered {
                 position: absolute;
@@ -99,24 +94,24 @@
                 
               }
             
-            
-              .modalContainer{
-                /* background-size: cotain; */
-                background-size: 100% 100%;
-                background-repeat: no-repeat;
-                
+            .helpButtonEnabled{
+                display: none !important;
             }
         </style>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-        <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+   
+  </head>
+  <body>
+  
+<!-- Einstein bot Script -->
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 
-    </head>
-       <script>
+<script type='text/javascript'>
+    
         var initESW = function(gslbBaseURL) {
             embedded_svc.settings.displayHelpButton = true; //Or false
             embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
     
-            embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
+            //embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
             //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
     
             //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
@@ -161,9 +156,12 @@
         } else {
             initESW('https://service.force.com');
         }
-    
-       </script>
-<script>
+   
+	
+</script>
+<!-- Chatbot bubble Script -->
+	<script>
+
     function showBtn(){
         let btnagent = document.querySelector('.fixedbuttonagent');
         btnagent.classList.remove('slds-hide');
@@ -175,14 +173,17 @@
           }, 2000);
     }
     function showBot(){
-        console.log({embedded_svc});
-        embedded_svc.bootstrapEmbeddedService();
+        let tiggerBot = document.querySelector('.helpButtonEnabled'); 
+       	tiggerBot.click();
     }
-</script>
-    <body>
-        <div class="container">
-            <div>
-                
+	
+
+
+		
+	  </script>
+	  <!-- chatbot bubble -->
+ 		<div class="container">
+            <div>                
                 <div class="slds-hide fixedbuttonagent">     
                     <div class="slds-align_absolute-center btnAgent " >
                        <a onclick="showBot()">
@@ -197,6 +198,6 @@
                 </div>
             </div>
         </div>
-    </body>
-
+	
+  </body>
 </html>
