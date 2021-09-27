@@ -1,1 +1,197 @@
+<html>
+    <head>
 
+        <title>Chat Bubble</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.16.2/styles/salesforce-lightning-design-system.min.css" integrity="sha512-4zTIO7L0OiCfwrJ0qx1l7FJzVFtJIXCtBjtxzh1cPEaocVlntVXooqrXCf6jk7yENLcymWklHY/tIikmDCF64A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <style>
+            .container{
+                width: 100%;
+                height: auto;
+                position:fixed;
+                right:0;
+                bottom:0;
+            }
+            .fixedbutton {
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 50px;
+            }
+            
+            .btn {
+                height: 90px;
+                width: 90px;
+                background-color: #3984BE;
+                border-radius: 50%;
+                color: white;
+                font-weight: bold;
+                border: 2px solid #ffffff;
+            }
+            .btnAgent {
+                height: 45px;
+                width: 270px;
+                background-color: #3984BE;
+                border-radius: 25px;
+                color: white !important;
+                font-weight: bold;
+                pointer-events: auto;
+            }
+            
+            .btnAgent a {
+                color: #ffffff !important;
+                text-decoration: none;
+            }
+            .btnmodel a {
+                color: #3984BE;
+                text-decoration: none;
+            }
+            
+            .fixedbuttonagent{
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 150px;
+                /* display: none; */
+            }
+             .hide{
+                display: none;
+             }
+            
+             .fixedbuttonmodel{
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 200px;
+                /* display: none; */
+            }
+            
+            .btnmodel {
+                height: 45px;
+                width: 250px;
+                background-color: #ffffff;
+                border-radius: 25px;
+                color: #3984BE;
+                font-weight: bold;
+            }
+            .modal{
+                margin-top: 71px;
+                margin-right: -5px;
+            }
+            
+            .green__icon{
+                --sds-c-icon-color-foreground: #FFFFFF !important;
+                --sds-c-icon-color-background: #3984BE !important;
+                background-color: var(--sds-c-icon-color-background, #3984BE);
+            }
+            .slds-scope .slds-icon-action-close {
+                background-color: #3984be !important;
+                background-color: var(--sds-c-icon-color-background, #3984BE);
+            }
+            
+            .centered {
+                position: absolute;
+                top: 54%;
+                left: 60.5%;
+                transform: translate(-50%, -50%);
+                
+              }
+            
+            
+              .modalContainer{
+                /* background-size: cotain; */
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                
+            }
+        </style>
+    </head>
+    <script>
+        var initESW = function(gslbBaseURL) {
+            embedded_svc.settings.displayHelpButton = false; //Or false
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+    
+            embedded_svc.settings.defaultMinimizedText = welcomeText; //(Defaults to Chat with an Expert)
+            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+    
+            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+            //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+    
+            // Settings for Chat
+            //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                // Returns a valid button ID.
+            //};
+            //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+            //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+    
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+    
+            embedded_svc.init(
+                'https://lwta--qa.my.salesforce.com',
+                'https://qa-lixilamerica.cs63.force.com/LWTACustomerService',
+                gslbBaseURL,
+                '00D6C0000000y9n',
+                'Bot_Chatbots_Group',
+                {
+                    baseLiveAgentContentURL: 'https://c.la2-c1cs-ia5.salesforceliveagent.com/content',
+                    deploymentId: '5723l000000CmZ3',
+                    buttonId: '5733l000000CnFp',
+                    baseLiveAgentURL: 'https://d.la2-c1cs-ia5.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'Bot_Chatbots_Group',
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+    
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://lwta--qa.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+    </script>
+<script>
+    function showBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent');
+        btnmodel.classList.remove('slds-hide');
+    }
+    function hideBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent'); 
+        setTimeout(function() {
+            btnmodel.classList.add('slds-hide');
+          }, 2000);
+    }
+    function showBot(){
+        embedded_svc.bootstrapEmbeddedService();
+    }
+</script>
+    <body>
+        <div class="container">
+            <div>
+                
+                <div class="slds-hide fixedbuttonagent">     
+                    <div class="slds-align_absolute-center btnAgent " >
+                       <a onclick="showBot()">
+                           CHAT &amp; CO-BROWSE WITH AN  AGENT
+                       </a>
+                    </div>
+                </div>
+                <div class="fixedbutton" onmouseover="showBtn()" onmouseout="hideBtn()" >     
+                    <div class="slds-align_absolute-center btn">
+                        NEED <br> HELP?
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+</html>
