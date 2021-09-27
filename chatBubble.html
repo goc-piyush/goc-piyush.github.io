@@ -4,6 +4,110 @@
 	  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Chatbot</title>
 	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.16.2/styles/salesforce-lightning-design-system.min.css" integrity="sha512-4zTIO7L0OiCfwrJ0qx1l7FJzVFtJIXCtBjtxzh1cPEaocVlntVXooqrXCf6jk7yENLcymWklHY/tIikmDCF64A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+	   <style>
+            .container{
+                width: 100%;
+                height: auto;
+                position:fixed;
+                right:0;
+                bottom:0;
+            }
+            .fixedbutton {
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 50px;
+            }
+            
+            .btn {
+                height: 90px;
+                width: 90px;
+                background-color: #3984BE;
+                border-radius: 50%;
+                color: white;
+                font-weight: bold;
+                border: 2px solid #ffffff;
+            }
+            .btnAgent {
+                height: 45px;
+                width: 270px;
+                background-color: #3984BE;
+                border-radius: 25px;
+                color: white !important;
+                font-weight: bold;
+                pointer-events: auto;
+            }
+            
+            .btnAgent a {
+                color: #ffffff !important;
+                text-decoration: none;
+            }
+            .btnmodel a {
+                color: #3984BE;
+                text-decoration: none;
+            }
+            
+            .fixedbuttonagent{
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 150px;
+                /* display: none; */
+            }
+             .hide{
+                display: none;
+             }
+            
+             .fixedbuttonmodel{
+                position: fixed;
+                bottom: 0;
+                right: 0; 
+                margin-right: 50px;
+                margin-bottom: 200px;
+                /* display: none; */
+            }
+            
+            .btnmodel {
+                height: 45px;
+                width: 250px;
+                background-color: #ffffff;
+                border-radius: 25px;
+                color: #3984BE;
+                font-weight: bold;
+            }
+            .modal{
+                margin-top: 71px;
+                margin-right: -5px;
+            }
+            
+            .green__icon{
+                --sds-c-icon-color-foreground: #FFFFFF !important;
+                --sds-c-icon-color-background: #3984BE !important;
+                background-color: var(--sds-c-icon-color-background, #3984BE);
+            }
+            .slds-scope .slds-icon-action-close {
+                background-color: #3984be !important;
+                background-color: var(--sds-c-icon-color-background, #3984BE);
+            }
+            
+            .centered {
+                position: absolute;
+                top: 54%;
+                left: 60.5%;
+                transform: translate(-50%, -50%);
+                
+              }
+            
+            
+              .modalContainer{
+                /* background-size: cotain; */
+                background-size: 100% 100%;
+                background-repeat: no-repeat;
+                
+            }
+        </style>
     <style>
 
 	 @media only screen and (max-width: 600px) {
@@ -219,7 +323,22 @@
 	.embeddedServiceSidebarButton .label,
 	.embeddedServiceSidebarButton:disabled .label {
 	    color: #0f2b4c !important;
-	}
+	}<script>
+    function showBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent');
+        btnagent.classList.remove('slds-hide');
+    }
+    function hideBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent'); 
+        setTimeout(function() {
+            btnagent.classList.add('slds-hide');
+          }, 2000);
+    }
+    function showBot(){
+        console.log({embedded_svc});
+        embedded_svc.bootstrapEmbeddedService();
+    }
+</script>
 	.embeddedServiceSidebarButton:focus {
 	    box-shadow: none !important;
 	}
@@ -264,7 +383,22 @@
   </head>
   <body>
   
-
+<script>
+    function showBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent');
+        btnagent.classList.remove('slds-hide');
+    }
+    function hideBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent'); 
+        setTimeout(function() {
+            btnagent.classList.add('slds-hide');
+          }, 2000);
+    }
+    function showBot(){
+        console.log({embedded_svc});
+        embedded_svc.bootstrapEmbeddedService();
+    }
+</script>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
 
 <script type='text/javascript'>
@@ -322,53 +456,23 @@
 	
 </script>
 	<script>
-/*		document.addEventListener("redirectFromLWC", function(event){
-			let agentName = event.detail.data.data.agentName;
-			let fname = agentName.split('_')[0];
-			let content = `Chat started with ${fname}`;
-			console.log('contecnt', content);
-			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
-			let element = document.querySelector('.eventMessage > .uiOutputRichText');
-			element.textContent = content;
-// 			let lastmsg = msgNames[msgNames.length - 1];
-// 			lastmsg.textContent = fname;
-			msgNames.forEach(ele => {
-				if(ele.innerText == agentName){
-			    		ele.textContent = fname;
-			    		console.log(ele.innerText);    
-				}
-			});
-  			console.log('event data', event.detail.data.data.agentName);
-		});
-        */
-		
-//window.addEventListener("message", receiveMessage, false);
-/*
 
-function receiveMessage(event) {
-    var payload = event.data;
-    if(payload && payload.type === "chasitor.sendMessage") {
-	    console.log('inside if');
-        embedded_svc.postMessage("chasitor.sendMessage", payload.message);
+    function showBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent');
+        btnagent.classList.remove('slds-hide');
     }
-	
-};
-var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-        var eventer = window[eventMethod];
-        var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
-        // Listen to message from child window
-        eventer(messageEvent, function (e) {
-        
-        var key = e.message ? "message" : "data";
-        var data = e[key];
-        console.log(JSON.stringify(data));
-        if (data == "flow.finished") {
-            console.log('eventer worked', {data});
-        }
-        //run function//
-        }, false);
+    function hideBtn(){
+        let btnagent = document.querySelector('.fixedbuttonagent'); 
+        setTimeout(function() {
+            btnagent.classList.add('slds-hide');
+          }, 2000);
+    }
+    function showBot(){
+        console.log({embedded_svc});
+        embedded_svc.bootstrapEmbeddedService();
+    }
 
-*/
+
 
 
 		
