@@ -107,6 +107,9 @@
                 background-repeat: no-repeat;
                 
             }
+            .helpButtonEnabled{
+                display: none !important;
+            }
         </style>
     <style>
 
@@ -363,9 +366,7 @@
 	  max-width: 23em !important;
 	  width: 23em !important;
 	}
-    .helpButtonEnabled{
-        display: none !important;
-    }
+    
     </style>
   </head>
   <body>
@@ -440,9 +441,10 @@
           }, 2000);
     }
     function showBot(){
-        //console.log({embedded_svc});
         //embedded_svc.bootstrapEmbeddedService();
-       let tiggerBot = document.querySelector('.helpButtonEnabled'); 
+        let tiggerBot = document.querySelector('.helpButtonEnabled'); 
+        console.log({tiggerBot});
+       
        tiggerBot.click();
     }
 
