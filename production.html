@@ -658,16 +658,15 @@ CobrowseIO.client().then(function(){
           let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
 
           let element = document.querySelector(".eventMessage > .uiOutputRichText");
+	if(element){
+		element.textContent = content;
+	}
 
-          element.textContent = content;
 
           msgNames.forEach(ele => {
-
+			
             if(ele.innerText == agentName){
-
               ele.textContent = fname;
-
-              console.log(ele.innerText);
 
             }
 
