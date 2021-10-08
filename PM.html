@@ -471,7 +471,13 @@
           width: 23em !important;
 
         }
-
+		.screen-meet-div{
+			position: fixed;
+    		z-index: 999;
+			height: 300px;
+	  		width: 300px;
+	  		background: antiquewhite;
+		}
       </style>
 
   </head>
@@ -631,17 +637,7 @@ CobrowseIO.client().then(function(){
 
 
        <script>
-// 		var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
-// 		var eventer = window[eventMethod];
-// 		var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
 
-// 		// Listen to message from child window
-// 		eventer(messageEvent,function(e) {
-// 		    var key = e.message ? "message" : "data";
-// 		    var data = e[key];
-// 			console.log({data});
-// 		    //run function//
-// 		},false);
 
         document.addEventListener("redirectFromLWC", function(event){
 
@@ -658,9 +654,9 @@ CobrowseIO.client().then(function(){
           let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
 
           let element = document.querySelector(".eventMessage > .uiOutputRichText");
-	if(element){
-		element.textContent = content;
-	}
+			if(element){
+				element.textContent = content;
+			}
 
 
           msgNames.forEach(ele => {
@@ -681,8 +677,35 @@ CobrowseIO.client().then(function(){
         );
 
       </script>
+	  <div id="screenmeet" class="screen-meet-div">
 
-    
+	  <iframe src="https://live.screenmeet.com/?SBhNUTxhYugH"  style="height: 100%; width:99%; margin-top: 20px;"></iframe>
+	</div>
+	  <script>
+		window.onload = addListeners();
+		function addListeners(){
+			document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
+			window.addEventListener('mouseup', mouseUp, false);
+		
+		}
+		function mouseUp()
+		{
+			window.removeEventListener('mousemove', divMove, true);
+		}
+
+		function mouseDown(e){
+		window.addEventListener('mousemove', divMove, true);
+		}
+
+		function divMove(e){
+			var div = document.getElementById('screenmeet');
+			div.style.position = 'absolute';
+			div.style.top = e.clientY + 'px';
+			div.style.left = e.clientX + 'px';
+		}
+	  </script>
+
+   
 
   </body>
 
