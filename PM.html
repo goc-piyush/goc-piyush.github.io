@@ -477,6 +477,7 @@
 			height: 300px;
 	  		width: 300px;
 	  		background: #0F2B4C;
+			display: none;
 		}
       </style>
 
@@ -684,8 +685,10 @@ CobrowseIO.client().then(function(){
 	</div>
 	
 	  <script>
-		window.onload = addListeners();
+		
 		function addListeners(){
+			let smeet = document.getElementById('screenmeet');
+			smeet.style.display = 'block';
 			document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
 			window.addEventListener('mouseup', mouseUp, false);
 		
@@ -706,7 +709,11 @@ CobrowseIO.client().then(function(){
 			div.style.left = e.clientX + 'px';
 		}
 	  </script>
-
+	  <script>
+		  document.addEventListener('screenMeetRender', function(){
+			  addListeners();
+		  })
+	  </script>
    
 
   </body>
