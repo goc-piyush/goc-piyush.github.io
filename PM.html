@@ -731,7 +731,10 @@ CobrowseIO.client().then(function(){
       console.log({event});
       console.log('URL', event.detail.data.data.screenMeet);
 		let MeetURL = event.detail.data.data.screenMeet;
-			addListeners(MeetURL);
+		if(MeetURL){
+			let url =  MeetURL.split('\'')[1]
+			addListeners(url);
+		}
 		});
 		function closeDiv(){
 			let smeet = document.getElementById('screenmeet');
