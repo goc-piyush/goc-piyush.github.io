@@ -693,16 +693,12 @@ CobrowseIO.client().then(function(){
 	
 	  <script>
       //addListeners();
-      let SMeetUrl = localStorage.getItem('MeetURL');
-      if(SMeetUrl){
-        window.onload = addListeners();
-      }
-		function addListeners(){
+		function addListeners(meetUrl){
 			let smeet = document.getElementById('screenmeet');
 			if(smeet){
 				smeet.style.display = 'block';
 			}
-			let meetUrl = localStorage.getItem('screenMeetUrl');
+			
 			if(meetUrl)	{
 				iframeEle = document.getElementById('meetRender');
 				if(iframeEle){
@@ -735,10 +731,7 @@ CobrowseIO.client().then(function(){
       console.log({event});
       console.log('URL', event.detail.data.data.screenMeet);
 		let MeetURL = event.detail.data.data.screenMeet;
-		if(MeetURL){
-			localStorage.setItem('MeetURL',MeetURL);
-		}
-			addListeners();
+			addListeners(MeetURL);
 		});
 		function closeDiv(){
 			let smeet = document.getElementById('screenmeet');
