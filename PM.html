@@ -732,6 +732,8 @@ CobrowseIO.client().then(function(){
 	  </script>
 	  <script>
 		document.addEventListener('screenMeetRender', function(event){
+      console.log({event});
+      console.log('URL', event.detail.data.data.screenMeet);
 			addListeners();
 		});
 		function closeDiv(){
