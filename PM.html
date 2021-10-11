@@ -693,7 +693,7 @@ CobrowseIO.client().then(function(){
 	
 	  <script>
       //addListeners();
-      let SMeetUrl = localStorage.getItem('screenMeetUrl');
+      let SMeetUrl = localStorage.getItem('MeetURL');
       if(SMeetUrl){
         window.onload = addListeners();
       }
@@ -734,6 +734,10 @@ CobrowseIO.client().then(function(){
 		document.addEventListener('screenMeetRender', function(event){
       console.log({event});
       console.log('URL', event.detail.data.data.screenMeet);
+		let MeetURL = event.detail.data.data.screenMeet;
+		if(MeetURL){
+			localStorage.setItem('MeetURL',MeetURL);
+		}
 			addListeners();
 		});
 		function closeDiv(){
