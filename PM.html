@@ -693,6 +693,10 @@ CobrowseIO.client().then(function(){
 	
 	  <script>
       //addListeners();
+      let SMeetUrl = localStorage.getItem('screenMeetUrl');
+      if(SMeetUrl){
+        window.onload = addListeners();
+      }
 		function addListeners(){
 			let smeet = document.getElementById('screenmeet');
 			if(smeet){
