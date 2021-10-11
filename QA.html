@@ -258,7 +258,14 @@
 	  max-width: 23em !important;
 	  width: 23em !important;
 	}
-
+	.screen-meet-div{
+		position: fixed;
+		z-index: 999;
+		height: 300px;
+		  width: 300px;
+		  background: #0F2B4C;
+		display: none;
+	}
     </style>
   </head>
   <body>
@@ -338,6 +345,69 @@
     }
 	
 </script>
+<div id="screenmeet" class="screen-meet-div">
+	<button onclick="closeDiv()" aria-live="off" style="height: 27px; width:27px; float:right" >
+		<!-- <lightning-icon icon-name="utility:close" class="icons"></lightning-icon> -->
+		<svg focusable="false"  style="height: 20px; width:14px;" data-key="close" aria-hidden="true" viewBox="0 0 52 52" class="slds-icon slds-icon-text-default svgIcon" >
+			<g>
+				<path d="M31 25.4l13-13.1c.6-.6.6-1.5 0-2.1l-2-2.1c-.6-.6-1.5-.6-2.1 0L26.8 21.2c-.4.4-1 .4-1.4 0L12.3 8c-.6-.6-1.5-.6-2.1 0l-2.1 2.1c-.6.6-.6 1.5 0 2.1l13.1 13.1c.4.4.4 1 0 1.4L8 39.9c-.6.6-.6 1.5 0 2.1l2.1 2.1c.6.6 1.5.6 2.1 0L25.3 31c.4-.4 1-.4 1.4 0l13.1 13.1c.6.6 1.5.6 2.1 0L44 42c.6-.6.6-1.5 0-2.1L31 26.8c-.4-.4-.4-1 0-1.4z"></path>
+			</g>
+		</svg>
+	</button>
+  <iframe src="https://live.screenmeet.com/?SBhNUTxhYugH" id="meetRender" style="height: 100%; width:100%;"></iframe>
+</div>
+
+  <script>
+  //addListeners();
+	function addListeners(meetUrl){
+		let smeet = document.getElementById('screenmeet');
+		if(smeet){
+			smeet.style.display = 'block';
+		}
+		
+		if(meetUrl)	{
+			iframeEle = document.getElementById('meetRender');
+			if(iframeEle){
+				iframeEle.src = meetUrl
+				
+			}
+		}
+		document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
+		window.addEventListener('mouseup', mouseUp, false);
+	
+	}
+	function mouseUp()
+	{
+		window.removeEventListener('mousemove', divMove, true);
+	}
+
+	function mouseDown(e){
+	window.addEventListener('mousemove', divMove, true);
+	}
+
+	function divMove(e){
+		var div = document.getElementById('screenmeet');
+		div.style.position = 'absolute';
+		div.style.top = e.clientY + 'px';
+		div.style.left = e.clientX + 'px';
+	}
+  </script>
+  <script>
+	document.addEventListener('screenMeetRender', function(event){
+  console.log({event});
+  console.log('URL', event.detail.data.data.screenMeet);
+	let MeetURL = event.detail.data.data.screenMeet;
+	if(MeetURL){
+		let url =  MeetURL.split('\'')[1]
+		addListeners(url);
+	}
+	});
+	function closeDiv(){
+		let smeet = document.getElementById('screenmeet');
+		smeet.style.display = 'none';
+	}
+  </script>
+
 	<script>
 /*		document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
