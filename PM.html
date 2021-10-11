@@ -477,7 +477,7 @@
 			height: 300px;
 	  		width: 300px;
 	  		background: #0F2B4C;
-			display: block;
+			display: none;
 		}
       </style>
 
@@ -695,7 +695,17 @@ CobrowseIO.client().then(function(){
       //addListeners();
 		function addListeners(){
 			let smeet = document.getElementById('screenmeet');
-			smeet.style.display = 'block';
+			if(smeet){
+				smeet.style.display = 'block';
+			}
+			let meetUrl = localStorage.getItem('screenMeetUrl');
+			if(meetUrl)	{
+				iframeEle = document.getElementById('meetRender');
+				if(iframeEle){
+					iframeEle.src = meetUrl
+					
+				}
+			}
 			document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
 			window.addEventListener('mouseup', mouseUp, false);
 		
@@ -718,14 +728,7 @@ CobrowseIO.client().then(function(){
 	  </script>
 	  <script>
 		document.addEventListener('screenMeetRender', function(event){
-			let meetUrl = localStorage.getItem('screenMeetUrl');
-			if(meetUrl)	{
-				iframeEle = document.getElementById('meetRender');
-				if(iframeEle){
-					iframeEle.src = meetUrl
-					addListeners();
-				}
-			}
+			addListeners();
 		});
 		function closeDiv(){
 			let smeet = document.getElementById('screenmeet');
