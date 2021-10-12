@@ -429,8 +429,9 @@
 		document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
 			let content;
+			let fname;
 			if(agentName){
-				let fname = agentName.split('_')[0];
+				fname = agentName.split('_')[0];
 				 content = `Chat started with ${fname}`;
 				console.log('contecnt', content);
 			}
