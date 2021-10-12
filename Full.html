@@ -473,12 +473,20 @@
         }
 		.screen-meet-div{
 			position: fixed;
-    		z-index: 999;
+    			z-index: 999;
 			height: 300px;
 	  		width: 300px;
 	  		background: #0F2B4C;
 			display: none;
 		}
+		     
+/* 		   scroll fixing   */
+	.embeddedServiceLiveAgentStateChat .messageArea.smoothScroll {
+    		scroll-behavior: auto;
+    		display: flex !important;
+    		flex-direction: column-reverse !important;
+	}
+		   
       </style>
 
   </head>
