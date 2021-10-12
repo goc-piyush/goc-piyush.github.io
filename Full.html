@@ -473,7 +473,7 @@
         }
 		.screen-meet-div{
 			position: fixed;
-    			z-index: 999;
+    			z-index: 10000;
 			height: 300px;
 	  		width: 300px;
 	  		background: #0F2B4C;
@@ -703,23 +703,33 @@ CobrowseIO.client().then(function(){
 	
 	  <script>
       //addListeners();
-		function addListeners(meetUrl){
-			let smeet = document.getElementById('screenmeet');
-			if(smeet){
+	  function addListeners(meetUrl,toggleWindow){
+		let smeet = document.getElementById('screenmeet');
+		console.log("add lisner call");
+		console.log({toggleWindow});
+		let toggle = JSON.parse(toggleWindow);
+		if(smeet){
+			console.log("inside smeet");
+			if(toggle){
+				console.log("toggle win true");
 				smeet.style.display = 'block';
+			}else{
+				console.log("toggle win false");
+				smeet.style.display = 'none';
 			}
-			
-			if(meetUrl)	{
-				iframeEle = document.getElementById('meetRender');
-				if(iframeEle){
-					iframeEle.src = meetUrl
-					
-				}
-			}
-			document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
-			window.addEventListener('mouseup', mouseUp, false);
-		
 		}
+		
+		if(meetUrl)	{
+			iframeEle = document.getElementById('meetRender');
+			if(iframeEle){
+				iframeEle.src = meetUrl
+				
+			}
+		}
+		document.getElementById('screenmeet').addEventListener('mousedown', mouseDown, false);
+		window.addEventListener('mouseup', mouseUp, false);
+	
+	}
 		function mouseUp()
 		{
 			window.removeEventListener('mousemove', divMove, true);
@@ -738,18 +748,20 @@ CobrowseIO.client().then(function(){
 	  </script>
 	  <script>
 		document.addEventListener('screenMeetRender', function(event){
-      console.log({event});
-      console.log('URL', event.detail.data.data.screenMeet);
-		let MeetURL = event.detail.data.data.screenMeet;
-		if(MeetURL){
-			let url =  MeetURL.split('\'')[1]
-			addListeners(url);
-		}
-		});
-		function closeDiv(){
-			let smeet = document.getElementById('screenmeet');
-			smeet.style.display = 'none';
-		}
+			console.log({event});
+			console.log('URL', event.detail.data.data.screenMeet);
+			  let MeetURL = event.detail.data.data.screenMeet;
+			  let toggleWindow = event.detail.data.data.toggleWindow;
+			  console.log({toggleWindow});
+			  if(MeetURL){
+				  let url =  MeetURL.split('\'')[1]
+				  addListeners(url,toggleWindow);
+			  }
+			  });
+			  function closeDiv(){
+				  let smeet = document.getElementById('screenmeet');
+				  smeet.style.display = 'none';
+			  }
 	  </script>
    
 
