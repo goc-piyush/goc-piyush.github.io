@@ -369,9 +369,10 @@
 		let smeet = document.getElementById('screenmeet');
 		console.log("add lisner call");
 		console.log({toggleWindow});
+		let toggle = JSON.parse(toggleWindow);
 		if(smeet){
 			console.log("inside smeet");
-			if(toggleWindow){
+			if(toggle){
 				console.log("toggle win true");
 				smeet.style.display = 'block';
 			}else{
