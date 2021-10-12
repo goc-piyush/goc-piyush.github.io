@@ -716,6 +716,11 @@ CobrowseIO.client().then(function(){
 			}else{
 				console.log("toggle win false");
 				smeet.style.display = 'none';
+				iframeEle = document.getElementById('meetRender');
+				if(iframeEle){
+					iframeEle.src = "";
+					
+				}
 			}
 		}
 		console.log({meetUrl});
