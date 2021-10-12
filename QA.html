@@ -417,9 +417,10 @@
 	<script>
 		document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
+			let content;
 			if(agentName){
 				let fname = agentName.split('_')[0];
-				let content = `Chat started with ${fname}`;
+				 content = `Chat started with ${fname}`;
 				console.log('contecnt', content);
 			}
 			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
