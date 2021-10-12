@@ -765,6 +765,11 @@ CobrowseIO.client().then(function(){
 			  });
 			  function closeDiv(){
 				  let smeet = document.getElementById('screenmeet');
+				  iframeEle = document.getElementById('meetRender');
+					if(iframeEle){
+						iframeEle.src = "";
+						
+					}
 				  smeet.style.display = 'none';
 			  }
 	  </script>
