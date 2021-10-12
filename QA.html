@@ -367,10 +367,15 @@
   //addListeners();
 	function addListeners(meetUrl,toggleWindow){
 		let smeet = document.getElementById('screenmeet');
+		console.log("add lisner call");
+		console.log({toggleWindow});
 		if(smeet){
+			console.log("inside smeet");
 			if(toggleWindow){
+				console.log("toggle win true");
 				smeet.style.display = 'block';
 			}else{
+				console.log("toggle win false");
 				smeet.style.display = 'none';
 			}
 		}
