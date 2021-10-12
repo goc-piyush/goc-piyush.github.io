@@ -754,8 +754,8 @@ CobrowseIO.client().then(function(){
 			  let toggleWindow = event.detail.data.data.toggleWindow;
 			  console.log({toggleWindow});
 			  if(MeetURL){
-				  let url =  MeetURL.split('\'')[1]
-				  addListeners(url,toggleWindow);
+				  //let url =  MeetURL.split('\'')[1];
+				  addListeners(MeetURL,toggleWindow);
 			  }
 			  });
 			  function closeDiv(){
