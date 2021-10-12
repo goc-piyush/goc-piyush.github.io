@@ -365,10 +365,14 @@
 
   <script>
   //addListeners();
-	function addListeners(meetUrl){
+	function addListeners(meetUrl,toggleWindow){
 		let smeet = document.getElementById('screenmeet');
 		if(smeet){
-			smeet.style.display = 'block';
+			if(toggleWindow){
+				smeet.style.display = 'block';
+			}else{
+				smeet.style.display = 'none';
+			}
 		}
 		
 		if(meetUrl)	{
@@ -403,9 +407,11 @@
   console.log({event});
   console.log('URL', event.detail.data.data.screenMeet);
 	let MeetURL = event.detail.data.data.screenMeet;
+	let toggleWindow = event.detail.data.data.toggleWindow;
+	console.log({toggleWindow});
 	if(MeetURL){
 		let url =  MeetURL.split('\'')[1]
-		addListeners(url);
+		addListeners(url,toggleWindow);
 	}
 	});
 	function closeDiv(){
