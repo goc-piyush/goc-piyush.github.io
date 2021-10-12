@@ -266,6 +266,12 @@
 		  background: #0F2B4C;
 		display: none;
 	}
+	/* scrooll fix */
+	.embeddedServiceLiveAgentStateChat .messageArea.smoothScroll {
+		scroll-behavior: auto;
+		display: flex !important;
+		flex-direction: column-reverse !important;
+	}
     </style>
   </head>
   <body>
@@ -409,14 +415,18 @@
   </script>
 
 	<script>
-/*		document.addEventListener("redirectFromLWC", function(event){
+		document.addEventListener("redirectFromLWC", function(event){
 			let agentName = event.detail.data.data.agentName;
-			let fname = agentName.split('_')[0];
-			let content = `Chat started with ${fname}`;
-			console.log('contecnt', content);
+			if(agentName){
+				let fname = agentName.split('_')[0];
+				let content = `Chat started with ${fname}`;
+				console.log('contecnt', content);
+			}
 			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
-			element.textContent = content;
+			if(element){
+				element.textContent = content;
+			}
 // 			let lastmsg = msgNames[msgNames.length - 1];
 // 			lastmsg.textContent = fname;
 			msgNames.forEach(ele => {
@@ -427,7 +437,7 @@
 			});
   			console.log('event data', event.detail.data.data.agentName);
 		});
-        */
+        
 		
 //window.addEventListener("message", receiveMessage, false);
 /*
