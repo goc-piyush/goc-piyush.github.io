@@ -653,39 +653,27 @@ CobrowseIO.client().then(function(){
         document.addEventListener("redirectFromLWC", function(event){
 
           let agentName = event.detail.data.data.agentName;
-
-          let fname = agentName.split("_")[0];
-
-          let content = `Chat started with ${fname}
-
-`;
-
-          console.log("contecnt", content);
-
-          let msgNames = document.querySelectorAll(".nameAndTimeContent > .agentName");
-
-          let element = document.querySelector(".eventMessage > .uiOutputRichText");
-			if(element){
-				element.textContent = content;
-			}
-
-
-          msgNames.forEach(ele => {
-			
-            if(ele.innerText == agentName){
-              ele.textContent = fname;
-
-            }
-
-          }
-
-                          );
-
-          console.log("event data", event.detail.data.data.agentName);
-
-        }
-
-        );
+		  if(agentName){
+			fname = agentName.split('_')[0];
+			 content = `Chat started with ${fname}`;
+			 if(fname && content){
+				setInterval(function(fname,content){
+					let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
+					let element = document.querySelector('.eventMessage > .uiOutputRichText');
+					if(element){
+						element.textContent = content;
+					}
+					msgNames.forEach(ele => {
+						if(ele.innerText == agentName){
+								ele.textContent = fname;
+								console.log(ele.innerText);    
+						}
+					});	
+					
+				},500,fname,content);
+			 }
+		}
+		});
 
       </script>
 
