@@ -434,22 +434,40 @@
 			if(agentName){
 				fname = agentName.split('_')[0];
 				 content = `Chat started with ${fname}`;
+				 if(fname && content){
+					setInterval(function(fname,content){
+						let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
+						let element = document.querySelector('.eventMessage > .uiOutputRichText');
+						if(element){
+							element.textContent = content;
+						}
+						msgNames.forEach(ele => {
+							if(ele.innerText == agentName){
+									ele.textContent = fname;
+									console.log(ele.innerText);    
+							}
+						});	
+						
+					},1000,fname,content);
+					document.removeEventListener("redirectFromLWC");
+				 }
 				console.log('contecnt', content);
 			}
-			let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
+			/* let msgNames = document.querySelectorAll('.nameAndTimeContent > .agentName');
 			let element = document.querySelector('.eventMessage > .uiOutputRichText');
 			if(element){
 				element.textContent = content;
-			}
+			} */
 // 			let lastmsg = msgNames[msgNames.length - 1];
 // 			lastmsg.textContent = fname;
-			msgNames.forEach(ele => {
+			/*msgNames.forEach(ele => {
 				if(ele.innerText == agentName){
 			    		ele.textContent = fname;
 			    		console.log(ele.innerText);    
 				}
 			});
   			console.log('event data', event.detail.data.data.agentName);
+			  */
 		});
         
 		
