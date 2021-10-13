@@ -651,7 +651,6 @@ CobrowseIO.client().then(function(){
 
 
         document.addEventListener("redirectFromLWC", function(event){
-
           let agentName = event.detail.data.data.agentName;
 		  if(agentName){
 			fname = agentName.split('_')[0];
@@ -666,7 +665,6 @@ CobrowseIO.client().then(function(){
 					msgNames.forEach(ele => {
 						if(ele.innerText == agentName){
 								ele.textContent = fname;
-								console.log(ele.innerText);    
 						}
 					});	
 					
