@@ -137,6 +137,10 @@
             embedded_svc.addEventHandler("afterDestroy", function() {
                 console.log("afterDestroy");
             });
+            embedded_svc.addEventHandler("onHelpButtonClick", function() {
+                console.log("onHelpButtonClick");
+            });
+            
             embedded_svc.init(
                 'https://lwta--qa.my.salesforce.com',
                 'https://qa-lixilamerica.cs63.force.com/LWTACustomerService',
