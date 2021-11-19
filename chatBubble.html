@@ -3,7 +3,6 @@
   <head>
 	  <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1.0"/>
     <title>Chatbot</title>
-	  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/design-system/2.16.2/styles/salesforce-lightning-design-system.min.css" integrity="sha512-4zTIO7L0OiCfwrJ0qx1l7FJzVFtJIXCtBjtxzh1cPEaocVlntVXooqrXCf6jk7yENLcymWklHY/tIikmDCF64A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	  <!-- chat bubble css -->
 	   <style>
             .container{
@@ -12,6 +11,7 @@
                 position:fixed;
                 right:0;
                 bottom:0;
+                font-size: 12px;
             }
             .fixedbutton {
                 position: fixed;
@@ -44,10 +44,7 @@
                 color: #ffffff !important;
                 text-decoration: none;
             }
-            .btnmodel a {
-                color: #3984BE;
-                text-decoration: none;
-            }
+           
             
             .fixedbuttonagent{
                 position: fixed;
@@ -61,38 +58,25 @@
                 display: none;
              }
             
-             .fixedbuttonmodel{
-                position: fixed;
-                bottom: 0;
-                right: 0; 
-                margin-right: 50px;
-                margin-bottom: 200px;
-                /* display: none; */
-            }
-            
-            .btnmodel {
-                height: 45px;
-                width: 250px;
-                background-color: #ffffff;
-                border-radius: 25px;
-                color: #3984BE;
-                font-weight: bold;
-            }
-            .modal{
-                margin-top: 71px;
-                margin-right: -5px;
-            }
-            
+          
            
+           .slds-align_absolute-center {
+                display: -webkit-box;
+                display: -ms-flexbox;
+                /* display: flex; */
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                /* justify-content: center; */
+                -ms-flex-line-pack: center;
+                /* align-content: center; */
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                /* align-items: center; */
+                /* margin: auto; */
+            }
             
             
-            .centered {
-                position: absolute;
-                top: 54%;
-                left: 60.5%;
-                transform: translate(-50%, -50%);
-                
-              }
+            
             
             .helpButtonEnabled{
                 display: none !important;
@@ -135,9 +119,12 @@
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
             embedded_svc.addEventHandler("afterDestroy", function() {
-                console.log("afterDestroy");
+                let btn = document.querySelector('.fixedbuttonagent');
+                btn.classList.remove('hide');
             });
             embedded_svc.addEventHandler("onHelpButtonClick", function() {
+                let btn = document.querySelector('.fixedbuttonagent');
+                btn.classList.add('hide');
                 console.log("onHelpButtonClick");
             });
             
@@ -176,12 +163,12 @@
 
     function showBtn(){
         let btnagent = document.querySelector('.menu');
-        btnagent.classList.remove('slds-hide');
+        btnagent.classList.remove('hide');
     }
     function hideBtn(){
         let btnagent = document.querySelector('.menu'); 
         setTimeout(function() {
-            btnagent.classList.add('slds-hide');
+            btnagent.classList.add('hide');
           }, 2000);
     }
     function showBot(){
@@ -196,7 +183,7 @@
 	  <!-- chatbot bubble -->
  		<div class="container">
             <div>   
-                <div class="slds-hide menu">
+                <div class="hide menu">
                     <div class="btnMenu">     
                         <div class="slds-align_absolute-center btnAgent " >
                            <a >
