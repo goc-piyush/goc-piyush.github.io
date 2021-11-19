@@ -97,6 +97,12 @@
             .helpButtonEnabled{
                 display: none !important;
             }
+            .btnMenu{
+                margin: 0 50px 210px 0;
+                position: fixed;
+                bottom: 0;
+                right: 0;
+            }
         </style>
    
   </head>
@@ -128,7 +134,10 @@
     
             embedded_svc.settings.enabledFeatures = ['LiveAgent'];
             embedded_svc.settings.entryFeature = 'LiveAgent';
-    
+            embedded_svc.addEventHandler("afterDestroy", function() {
+                console.log("afterDestroy");
+            });
+            afterDestroy
             embedded_svc.init(
                 'https://lwta--qa.my.salesforce.com',
                 'https://qa-lixilamerica.cs63.force.com/LWTACustomerService',
@@ -163,11 +172,11 @@
 	<script>
 
     function showBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent');
+        let btnagent = document.querySelector('.menu');
         btnagent.classList.remove('slds-hide');
     }
     function hideBtn(){
-        let btnagent = document.querySelector('.fixedbuttonagent'); 
+        let btnagent = document.querySelector('.menu'); 
         setTimeout(function() {
             btnagent.classList.add('slds-hide');
           }, 2000);
@@ -183,14 +192,23 @@
 	  </script>
 	  <!-- chatbot bubble -->
  		<div class="container">
-            <div>                
-                <div class="slds-hide fixedbuttonagent">     
-                    <div class="slds-align_absolute-center btnAgent " >
-                       <a onclick="showBot()">
-                           CHAT &amp; CO-BROWSE WITH AN  AGENT
-                       </a>
+            <div>   
+                <div class="slds-hide menu">
+                    <div class="btnMenu">     
+                        <div class="slds-align_absolute-center btnAgent " >
+                           <a >
+                               BOOK A DESIGN CONSULTANT
+                           </a>
+                        </div>
+                    </div>            
+                    <div class="fixedbuttonagent">     
+                        <div class="slds-align_absolute-center btnAgent " >
+                           <a onclick="showBot()">
+                               CHAT &amp; CO-BROWSE WITH AN  AGENT
+                           </a>
+                        </div>
                     </div>
-                </div>
+                </div> 
                 <div class="fixedbutton" onmouseover="showBtn()" onmouseout="hideBtn()" >     
                     <div class="slds-align_absolute-center btn">
                         NEED <br> HELP?
