@@ -28,7 +28,7 @@
 		  fetch('https://qa-lixilamerica.cs63.force.com/LWTACustomerService/services/apexrest/Business/')
     .then(result => {
         console.log({result});
-        console.log(result.ok);
+        console.log(result.json());
 			     console.log(result.response);
         if(result.ok){
             welcomeText = 'Chat with Expert';
