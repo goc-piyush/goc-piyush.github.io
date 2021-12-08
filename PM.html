@@ -498,6 +498,7 @@
     .then(result => {
         console.log({result});
         console.log(result.ok);
+			     console.log(result.body);
         if(result.ok){
             welcomeText = 'Chat with Expert';
             loadChatBot();
