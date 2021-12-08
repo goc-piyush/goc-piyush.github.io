@@ -37,7 +37,9 @@
     .then(result => {
         console.log({result});
         console.log(result.json());
-			     console.log(result.response);
+		let response = result.json();
+		response = JSON.parse(response);
+		console.log({response});
         if(result.ok){
             welcomeText = 'Chat with Expert';
             loadChatBot();
