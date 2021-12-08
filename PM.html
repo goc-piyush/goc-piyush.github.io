@@ -25,7 +25,19 @@
  
 	  <script>
 		  let welcomeText;
-		  fetch('https://pm-lixilamerica.cs37.force.com/LWTACustomerService/services/apexrest/Business')
+		  let date = new Date();
+		  fetch('https://pm-lixilamerica.cs37.force.com/LWTACustomerService/services/apexrest/Business',{
+			method: "GET",
+			headers: {
+			  'Accept': 'application/json',
+			  'Content-Type': 'application/json'
+			},
+			//make sure to serialize your JSON body
+			body: JSON.stringify({
+			  name: "US_ConsumerConnection_GROHE",
+			  password: date.toISOString(),
+			})
+		  })
     .then(result => {
         console.log({result});
         console.log(result.json());
