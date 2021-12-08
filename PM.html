@@ -27,7 +27,7 @@
 		  let welcomeText;
 		  let date = new Date();
 		  date = date.toISOString();
-		  fetch(`https://pm-lixilamerica.cs37.force.com/LWTACustomerService/services/apexrest/Business?name="US_ConsumerConnection_GROHE"&date="${date}"`,{
+		  fetch(`https://pm-lixilamerica.cs37.force.com/LWTACustomerService/services/apexrest/Business?name="US_ConsumerConnection_GROHE"&datetime="${date}"`,{
 			method: "GET",
 			headers: {
 			  'Accept': 'application/json',
